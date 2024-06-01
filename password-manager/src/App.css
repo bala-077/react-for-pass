@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Atma:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family: "Atma", system-ui;
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #fda7df;
+}
+nav{
+    display: flex;
+    background-color: #d980fa;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+nav img{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+}
+nav h1{
+
+    font-size: 30px;
+    font-weight: 500;
+    padding-top: 20px;
+}
+.url-text{
+    position: relative;
+    background-color: #d980fa;
+    margin-top: 200px;
+    margin-left: 450px;
+    width: 500px;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    height: 100px;
+    display: flex;
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.url-text input{
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 50%;
+    height: 20px;
+    border-radius: 8px;
+    border: none;
+}
+.url-text button{
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border: 2px solid white;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: 70px;
+    border-radius: 8px;
+    width: 100px;
+    height: 50px;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+.url-text .linkurl{
+    position: absolute;
+        left: 53%;
+        top: 65px;
+        width: 30px;
+        color:gray;
+}
+/* @media(max-width:768px){
+.nav,.form{
+    ;
+} */
+

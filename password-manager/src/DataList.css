@@ -1,0 +1,112 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+.list-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color:  #fda7df;
+}
+.list-user{
+    width: 700px;  
+    background-color: #d980fa;  
+    height: 400px;
+    border-radius: 20px;
+}
+.list-footer{
+    margin-top:50px;
+    margin-left: 185px;
+}
+.list-footer1{
+    letter-spacing: 1px;
+    margin: 2px;
+    font-size: 16px;
+}
+.list-footer1 input{
+    
+    padding-left: 60px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+} 
+.list-footer1 .textcopy {
+    top: 250px;
+    right: 300px;
+    width: 10px;
+    
+} 
+.list-password{
+    letter-spacing: 1px;
+    margin: 2px;
+    font-size: 16px;
+}
+.list-password input{
+    position: relative;
+    padding-left: 60px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+} 
+.list-password .passwordcopy{
+
+
+    top: 285px;
+    right: 240px;
+    width: 10px;
+}
+    
+
+.list-url{
+    letter-spacing: 1px;
+    margin: 2px;
+    font-size: 16px;
+}
+.list-url input{
+    position: relative;
+    
+    padding-left: 60px;
+    margin-left: 50px;
+    margin-top: 10px;
+
+    border-radius: 5px;
+    border: none;
+} 
+.list-url .urlcopy{
+margin-left: 8px;
+    top: 325px;
+    right: 234px;
+    width: 10px;
+
+}
+.check{
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+.check span{
+    margin-left: 5px;
+}
+.textarea{letter-spacing: 1px;
+    margin-top:20px ;
+    font-size: 16px;
+    
+}  
+.textarea textarea{
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    height: 90px;
+} 
+.edit{
+    margin-top: 90px;
+    margin-left: 90px;
+    padding: 10px;
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+}

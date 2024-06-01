@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Atma:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.login-wrapper{
+    font-family: "Atma", system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:  #fda7df;
+}
+.wrapper{
+    width: 650px;
+    background-color: #d980fa;
+    border-radius: 10px;
+    
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper .input-box{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.input-box input{
+    position: relative;
+    width: 80%;
+    height: 50%;
+    background-color:transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+
+}
+.input-box input::placeholder{
+    color: #fff;
+}
+.input-box .icon-1{
+   margin-left: 10px;
+
+    font-size: 16px;
+}
+.input-box .icon-2{
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.wrapper button{
+    width: 80%;
+    height: 45px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left:45px;
+}
+
