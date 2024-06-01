@@ -1,0 +1,48 @@
+*{
+    background-color: rgb(185, 163, 206);
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.header h1{
+
+   width: 270px;
+   height: 32px;
+   background-color: black;
+   color: white;
+
+}
+
+.container{
+padding: 20px;
+width: 100%;
+height: 100vh;
+font-size: 30px;
+display: flex;
+gap: 10px;
+justify-content: center;
+align-items: center;
+/* overflow: scroll; */
+}
+.pssw{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 20px;
+padding: 10px;
+transition: all 0.3s;
+}
+.pssw:hover{
+    transform: translateY(-6);
+    color: rgb(245, 110, 86);
+}
+
+
+.pssw{
+    cursor: pointer;
+
+}
