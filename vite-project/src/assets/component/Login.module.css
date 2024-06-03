@@ -1,0 +1,78 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+}
+.content{
+    height: 70%;
+    width: 80%;
+    padding: 3%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 20px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.username{
+    margin-top: 50px;
+    gap: 30px;
+    padding: 10px;
+}
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name input{
+    flex-grow: 1;
+    padding: 10px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.userpassword{
+    margin-top: 30px;
+    padding: 10px;
+}
+.button{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.button button {
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s; 
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .button button:hover {
+    background-color: skyblue;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .button button:active {
+    transform: translateY(-1px);
+  }
+  
