@@ -1,0 +1,171 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.update-header{
+    background-color: #fda7df;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 50px;
+
+}
+
+.update-container{
+   margin-left: 400px;
+   width: 500px;
+   height: 300px;
+
+}
+.update-user{
+
+    font-size: 19px;
+    padding: 20px;
+    margin: 8px;
+    letter-spacing: 1px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.update-user input{
+    padding-left: 10px;
+    margin-left: 30px;
+    border: none;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+.update-password{
+    font-size: 19px;
+    padding: 20px;
+    margin: 8px;
+    letter-spacing: 1px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.update-password input{
+    padding-left: 10px;
+    margin-left: 30px;
+    border: none;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+.update-url{
+    font-size: 19px;
+    padding: 20px;
+    margin: 8px;
+    letter-spacing: 1px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.update-url input{
+    padding-left: 50px; 
+    margin-left: 30px;
+    border: none;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.update-notes{
+    font-size: 19px;
+    padding: 10px;
+    margin: 8px;
+    letter-spacing: 1px;
+    
+}
+.update-notes label{
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+.update-check{
+    padding-left: 20px;
+    padding-top: 20px;
+
+}
+.update-check span{
+    padding-left: 10px;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+.update-button{
+    margin-top: 30px;
+    margin-left: 27%;
+    
+}
+.update-button button{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+}
+.Btn {
+    position: relative;
+    width: 150px;
+    height: 55px;
+    border-radius: 45px;
+    border: none;
+    background-color: rgb(151, 95, 255);
+    color: white;
+    box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+    0px 5px 10px rgba(5, 5, 5, 0.212),
+    0px -10px 10px rgb(124, 54, 255) inset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .Btn::before {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    content: "";
+    filter: blur(1px);
+    top: 7px;
+    border-radius: 50%;
+  }
+  
+  .Btn::after {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    content: "";
+    filter: blur(1px);
+    bottom: 7px;
+    border-radius: 50%;
+  }
+  
+  .Btn:hover {
+    animation: jello-horizontal 0.9s both;
+  }
+  
+  @keyframes jello-horizontal {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+  
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+  
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+  
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+  
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  

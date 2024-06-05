@@ -1,123 +1,89 @@
 import React, { useState } from 'react'
 import './DataList.css'
 import { FaRegCopy } from "react-icons/fa6";
+import { Link, useNavigate } from 'react-router-dom';
 
-const CopyTextBox=()=>{
-    const[text,setText]=useState('')
-    const[pass,setPass]=useState('')
-    const[url,setUrl]=useState('')
 
-const handleTextChange=(event)=>{
-    setText(event.target.value);
-};
 
- const handlepassword=(event)=>{
-setPass(event.target.value);
- };
 
- const handleurl=(event)=>{
-  setUrl(event.target.value);
- };
-const handlecopy=()=>{
-    if(navigator.clipboard){
-        navigator.clipboard.writeText(text).then(()=>{
-            alert ("Text copied to clipboard");
-        }).catch((err)=>{
-            console.error("failed to copy text",err);
-        });
-    }else{
-        const textArea=document.createElement("textarea");
-        textArea.value=text;
-        document.body.appendChild(textArea);
-        textArea.select();
-      try{
-        document.execCommand('copy');
-        alert("Text copied to clipboard")
-      }catch(err){
-        console.error('failed to copy text:',err)
+function ReadPage() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { address, item } = location.state || {};
+  
+  const [data, setData] = useState({ username: '', password: '', url: '', notes: '' });
+
+  useEffect(() => {
+      const fetchData = async () => {
+          if (address && item) {
+              try {
+                  const result = await handlePage(address, item);
+                  console.log('HI')
+                  const parsedResult = JSON.parse(result);
+                  setData(parsedResult.data); 
+              } catch (error) {
+                  console.error('Failed to fetch data:', error);
+              }
+          }
+      };
+
+      fetchData();
+  }, [address, item]);
+
+  const handleEdit = () => {
+      navigate('/read-page', { state: { data } });
+  };
+
+  const handleCopy = async (text) => {
+      try {
+          await navigator.clipboard.writeText(text);
+          console.log("Text copied successfully");
+      } catch (err) {
+          console.error('Failed to copy:', err);
       }
-      document.body.removeChild(textArea);
-    }
-};
-const handlecopypassword=()=>{
-  if(navigator.clipboard){
-      navigator.clipboard.writeText(pass).then(()=>{
-          alert ("Text copied to clipboard");
-      }).catch((err)=>{
-          console.error("failed to copy text",err);
-      });
-  }else{
-      const textArea=document.createElement("textarea");
-      textArea.value=pass;
-      document.body.appendChild(textArea);
-      textArea.select();
-    try{
-      document.execCommand('copy');
-      alert("Text copied to clipboard")
-    }catch(err){
-      console.error('failed to copy text:',err)
-    }
-    document.body.removeChild(textArea);
-  }
-};
-const handlecopyurl=()=>{
-  if(navigator.clipboard){
-      navigator.clipboard.writeText(url).then(()=>{
-          alert ("Text copied to clipboard");
-      }).catch((err)=>{
-          console.error("failed to copy text",err);
-      });
-  }else{
-      const textArea=document.createElement("textarea");
-      textArea.value=url;
-      document.body.appendChild(textArea);
-      textArea.select();
-    try{
-      document.execCommand('copy');
-      alert("Text copied to clipboard")
-    }catch(err){
-      console.error('failed to copy text:',err)
-    }
-    document.body.removeChild(textArea);
-  }
-};
-
-  return (
-    <div className='list-header'>
-     <div className="list-user">
-      <div className="list-footer">
-        <form action="">
-        <div className="list-footer1">
-        <label htmlFor="user">UserName:</label>
-        <input type="text" className='username' value={text} onChange={handleTextChange} />
-        <FaRegCopy  className='textcopy' onClick={handlecopy}/>
-        </div>
-      <div className="list-password">
-        <label htmlFor="user">PassWord:</label>
-        <input type="password" className='password' value={pass} onChange={handlepassword}/>
-        <FaRegCopy  className='passwordcopy' onClick={handlecopypassword}/>
-      </div>
-      <div className="list-url">
-        <label htmlFor="check">URL:</label>
-        <input type="text" className='url' value={url} onChange={handleurl} />
-        <FaRegCopy className='urlcopy'onClick={handlecopyurl}/>
-        </div>
-       <div className="check">
-        <input type="checkbox" />
-        <span>: All are verified</span>
-       </div>
-       <div className="textarea">
-        <textarea name="text" id="text" placeholder='write something'></textarea>
-      
-       </div>
-        <button className='edit'>Edit</button>
-        </form>  
-     </div>
-     </div>
+  };
 
 
+
+  
+return (
+<div className='user-container'>
+  <h1>Read Page</h1>
+  <div className='user-name'> 
+  <label >Username:</label>
+  <input type="text" value={data.username}/> 
+  <FaRegCopy  className='textcopy' onClick={()=>HandleCopy(data.username)}/>
+  </div>
+  <div className='user-password'>
+  <label >UserPassword:</label>
+   <input type="password" value= {data.password} />
+  <FaRegCopy  className='textcopy-one' onClick={()=>HandleCopy(data.password)}/>
+  </div>
+  <div className='user-url'>
+  <label >UserUrl:</label>
+    <input type="text" value={data.url} />
+  <FaRegCopy  className='textcopy-two' onClick={()=>HandleCopy(data.url)}/>
+  
+  </div>
+  <div className='user-checkbox'>
+    <input type="checkbox" />
+    <span>:All are verified</span>
+  </div>
+  <div className="user-textarea">
+    <textarea name="" id="">{data.notes}</textarea>
     </div>
-  )
-};
-export default CopyTextBox;
+    <div className='data-btn'>
+  <button className='datalist-button' onClick={handleEdit}>Edit</button>
+  <button className='datalist-button' onClick={handleClick}>Generator Password</button>
+  </div>
+</div>
+  );
+}
+
+export default ReadPage;
+
+
+
+
+
 
