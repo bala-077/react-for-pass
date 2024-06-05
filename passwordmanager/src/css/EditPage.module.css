@@ -7,8 +7,30 @@
     align-items: center;
 }
 
+.button1 {
+    width: 100%;
+    text-align: end;
+}
+
+.button1 button {
+    border: 1px solid rgb(20, 87, 244);
+    background-color: transparent;
+    padding: 12px 20px;
+    border-radius: 7px;
+    transition: .3s;
+    color: rgb(20, 87, 244);
+    font-weight: 600;
+}
+
+.button1 button:hover {
+    color: #fff;
+    font-weight: 600;
+    background-color: rgb(20, 87, 244);
+    border: 1px solid rgb(20, 87, 244);
+}
+
 .contents {
-    height: 85%;
+    height: 86%;
     width: 80%;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     padding: 20px;
@@ -31,12 +53,7 @@
 .icons {
     font-size: 20px;
     margin: 5px;
-}
-
-.icons:hover {
-    color: blue;
-    cursor: pointer;
-    transition: all 0.3s;
+    font-weight: 600;
 }
 
 .content {
@@ -89,68 +106,14 @@
     border-radius: 10px;
 }
 
-.button {
-    display: flex;
-    justify-content: end;
-    margin-top: 20px;
-}
-
-.Btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100px;
-    height: 40px;
-    border: none;
-    padding: 0px 20px;
-    background-color: rgb(168, 38, 255);
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 5px 5px 0px rgb(140, 32, 212);
-    transition-duration: .3s;
-}
-
-.svg {
-    width: 13px;
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
-    fill: white;
-    transition-duration: .3s;
-}
-
-.Btn:hover {
-    color: transparent;
-}
-
-.Btn:hover svg {
-    right: 43%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    transition-duration: .3s;
-}
-
-.Btn:active {
-    transform: translate(3px, 3px);
-    transition-duration: .3s;
-    box-shadow: 2px 2px 0px rgb(140, 32, 212);
-}
-
-
 @media screen and (max-width:800px) {
     .notes textarea {
         width: 100%;
-        height: 30px;
+        height: 100px;
         overflow: scroll;
     }
 
     .contents {
         box-shadow: none;
     }
-
-    @media screen and (max-width:400px) {}
 }

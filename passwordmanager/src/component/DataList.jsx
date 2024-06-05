@@ -1,39 +1,73 @@
-import React from 'react'
-import {useNavigate} from 'react-router-dom'
-import styles from '../css/DataList.module.css'
- 
-const passwords = [
-  {
-    id:1,
-    name:'google'
-  },
-  {
-    id:2,
-    name:'chrome'
-  },
-  {
-    id:3,
-    name:'indeed'
-  }
-]
-   function PasswordList(){
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import styles from '../css/DataList.module.css';
+
+function PasswordList() {
     const navigate = useNavigate();
-    const handleEdit = (id) =>{
-      navigate(`/edit-password/${id}`);
-    }
-  return (
-    <>
-    <div className={styles.header}>
-      <h1>PASSWORD LIST</h1>
-    </div>
-    <div className={styles.container}>
-      <div className={styles.divisons}>
-      {passwords.map((item) =>(
-        <div key={item.id} onClick={() =>handleEdit(item.id)} className={styles.contents}><p>{item.name}</p></div>
-      ))}
-      </div>
-    </div>
-    </>
-  )
+    const location = useLocation();
+    const { address } = location.state || {};
+    // const [Ipaddress, setIpAddress] = useState(address);
+    const [passwords, setPasswords] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const myHeaders = new Headers();
+                myHeaders.append("Cookie", "full_name=Guest; sid=Guest; system_user=no; user_id=Guest; user_image=");
+
+                const requestOptions = {
+                    method: "GET",
+                    headers: myHeaders,
+                    redirect: "follow"
+                };
+
+                const response = await fetch(`http://${address}/api/method/jinpass.jinpass.api.get_all_passwords`, requestOptions);
+                const result = await response.json();
+
+                console.log('Response:', result); 
+
+                if (result && Array.isArray(result.message)) {
+                    setPasswords(result.message);
+                } else {
+                    console.error('Unexpected response format:', result);
+                }
+            } catch (error) {
+                console.error('Error fetching passwords:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleEdit = (name) => {
+        // Find the selected password item
+        const selectedItem = passwords.find(item => item.name === name);
+        if (selectedItem) {
+            navigate(`/edit-password/${name}`, {
+                state: { address, selectedItem }
+            });
+        }
+        console.log("value"+name)
+        console.log("address"+address)
+    };
+
+    return (
+        <>
+            <div className={styles.header}>
+                <h1>PASSWORD LIST</h1>
+            </div>
+            <p>{address}</p>
+            <div className={styles.container}>
+                <div className={styles.divisions}>
+                    {passwords.map((item) => (
+                        <div key={item.name} onClick={() => handleEdit(item.name)} className={styles.contents}>
+                            <p>{item.name}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
 }
+
 export default PasswordList;

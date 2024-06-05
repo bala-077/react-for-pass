@@ -1,29 +1,33 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-:root{
+
+:root {
     --sectext: #298aae;
     --text: #314119;
     --bgcolor: #fff;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     display: none;
 }
-.division{
+
+.division {
     height: 100vh;
     width: 100%;
     overflow: scroll;
 }
-.subdivision{
+
+.subdivision {
     height: 100%;
     width: 90%;
     margin-left: 5%;
 }
-   
-   
-.header{
+
+
+.header {
     height: 15%;
     width: 100%;
     display: flex;
@@ -31,37 +35,44 @@
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
-.header h1{
+
+.header h1 {
     font-weight: 300;
 }
-.container{
+
+.container {
     height: 100%;
     width: 100%;
 }
-.contents{
+
+.contents {
     height: 85%;
     width: 100%;
 }
-.images{
+
+.images {
     height: 200px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.images img{
+
+.images img {
     height: 150px;
     width: 150px;
     margin-top: 10%;
 }
-.urlfield{
+
+.urlfield {
     height: 50%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.inputs{
+
+.inputs {
     display: flex;
     height: 40px;
     width: 100%;
@@ -71,7 +82,8 @@
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     border-radius: 20px;
 }
-.inputs input{
+
+.inputs input {
     flex-grow: 1;
     padding: 10px;
     font-size: 18px;
@@ -80,10 +92,12 @@
     border: none;
     outline: none;
 }
-.inputs img{
+
+.inputs img {
     height: 30px;
     width: 30px;
 }
+
 .inputs button {
     border: none;
     color: #fff;
@@ -93,25 +107,25 @@
     font-family: inherit;
     font-size: 17px;
     padding: 0.6em 1.5em;
-   }
-   
-   .inputs button:hover {
+}
+
+.inputs button:hover {
     background-position: right center;
     background-size: 200% auto;
     -webkit-animation: pulse 2s infinite;
     animation: pulse512 1.5s infinite;
-   }
-   
-   @keyframes pulse512 {
+}
+
+@keyframes pulse512 {
     0% {
-     box-shadow: 0 0 0 0 #05bada66;
+        box-shadow: 0 0 0 0 #05bada66;
     }
-   
+
     70% {
-     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+        box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
     }
-   
+
     100% {
-     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+        box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
     }
-   }
+}
