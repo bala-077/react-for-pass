@@ -20,19 +20,19 @@ const passwords = [
     
   }
 ]
-   function PasswordList(){
+   function Data(){
     const navigate = useNavigate();
     const handleEdit = (id) =>{
-      navigate(`/edit-password/${id}`);
+      navigate(`/PassWordEdit/${id}`);
     }
   return (
     <>
-    <div className={styles.header}>
-      <h1>PASSWORD LIST</h1>
+    <div className={styles.head}>
+      <h1>PASSWORD MANAGE</h1>
     </div>
     <div className={styles.container}>
       <div className={styles.pssw}>
-      {passwords.map((item) =>(
+      {passwords.map((item) =>( 
         <div key={item.id} onClick={() =>handleEdit(item.id)} className={styles.contents}><p>{item.name}</p></div>
       ))}
       </div>
@@ -40,4 +40,4 @@ const passwords = [
     </>
   )
 }
-export default PasswordList;
+export default Data;

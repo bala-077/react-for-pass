@@ -10,12 +10,15 @@
 
 
 .container{
-  background-color:lightcoral;
+  /* background-color:lightcoral; */
   width: 500px;
   height: 550px;
-  border-radius: 20px;
-  margin-left: 600px;
-  margin-top: 100px;
+  border-radius: 30px;
+  margin-left: 500px;
+  margin-top: 50px;
+  box-shadow:30px 25px 20px  #0000008c;
+  position: relative;
+  overflow: hidden;
 
 }
 .container h1{
@@ -34,10 +37,10 @@
  
 }
 .urltext button{
-  font-size: 22px;
+  font-size: 25px;
   display: flex;
-  width: 60px;
-  height: 40px;
+  width: 65px;
+  height: 45px;
   padding:8px;
   border-radius:10px;
   margin-top: 70px;
@@ -45,6 +48,13 @@
   color: white;
   margin-left: 225px;
   cursor: pointer;
+  box-shadow: 0px 8px 14px rgba(red, green, blue, alpha);
+}
+.urltext button:hover{
+  background-color:#288bdb;
+  box-shadow: 0px 15px 20px ;
+  color:#fff;
+  transform: translateY(-6px);
 }
 
 

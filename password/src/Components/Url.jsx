@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../Css/Url.module.css';
+import { FaLink } from "react-icons/fa6";
 
 
 import {useNavigate} from "react-router-dom"
@@ -32,6 +33,7 @@ const Url=()=>{
                 <div className={styles.urltext}>
                 <input type="text" placeholder='Enter your Url code' value={ipAddress} onChange={handleChange} />
 
+                <FaLink />
 
             <button onClick={handlesubmit}type='submit'>Get</button>
                 </div>

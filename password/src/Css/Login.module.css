@@ -10,42 +10,67 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    background-color: lightcoral;
-    margin-top: 200px;
-    margin-left: 34%;
-    width: 600px;
-    height: 400px;
+    margin-top: 130px;
+    margin-left: 30%;
+    width: 700px;
+    height: 450px;
+    box-shadow: 20px 15px 20px;
+   
 }
 .inp input{
     border-radius: 10px;
-    width:300px;
+    width:350px;
     height: 25px;
+    border: none;
+    font-weight: 500;
+}
+.inp ::placeholder{
+    font-weight: 500;
 }
 .inp{
    height: 20px;
+   border: none;
+ 
+ 
 }
 .pass input{
     border-radius: 10px;
-    width:300px;
+    width:350px;
+    border: none;
     height: 25px;
+    
+    
     
 }
 .buton button{
-    width: 60px;
+    width: 80px;
     height: 30px;
+    font-size: 15px;
+    background-color: rgb(56, 255, 179);
+    box-shadow: 0px 5px 10px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2;
 
 }
 .buton button:hover{
-    background-color:lightgreen;
-    box-shadow: 0px 3px 2px ;
-    color: #333;
+    background-color:rgb(112, 172, 241);
+    box-shadow: 0px 15px 20px ;
+    color: #fff;
     transform: translateY(-7px);
 }
 .buton button:active{
     transform: translateY(-1px);
 }
+.link{
+    cursor: pointer;
+}
+@media screen and (max-width:800px) {
+    .header {
+        width:400px;
+        height: 500px;
+        overflow: scroll;
 
+}
+}
 
