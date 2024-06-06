@@ -1,1 +1,1 @@
-# Front-ed For Frappe Password
+# Front-end For Frappe Password
