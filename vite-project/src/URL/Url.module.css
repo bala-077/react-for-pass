@@ -5,15 +5,17 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 .container{
     height: 100vh;
     width: 100%;
+    background-color: pink;
 }
 .cont1{
     text-align: center;
     background-color:black;
-    color:white;
+    color:pink;
     backdrop-filter: blur(20px);
     padding-top: 50px;
 }
@@ -37,7 +39,7 @@ img{
 
 
 } */
-input{
+.cont3 input{
     width: 50%;
     height: 50px;
     border-radius: 10px;

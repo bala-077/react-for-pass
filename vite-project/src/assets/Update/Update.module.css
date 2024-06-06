@@ -1,0 +1,76 @@
+.container{
+    
+    background: url(../OIP.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contents{
+    background-color: #ffefdf; 
+    height: 90%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    justify-content: center;
+  
+}
+.details{
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+.content input{
+    border: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    background:transparent;
+}
+.fav input{
+   width: 20px;
+}
+.fav{
+    display: flex;
+    align-items: center;
+    
+}
+.notes textarea{
+    width: 100%;
+    height: 100px;
+}
+.container1{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+.xyz{
+    display: flex;
+    align-items: center;
+    justify-content:end ;
+}
+.xyz button{
+    width: 100px;
+    height: 42px;
+    font-size: large;
+    border-radius: 20px;
+    background-color:limegreen;
+
+}
+.svg{
+    width: 15px;
+}
+.eye{
+    /* width: 30px; */
+    /* height: 20px; */
+    /* margin-left: 95%; */
+}

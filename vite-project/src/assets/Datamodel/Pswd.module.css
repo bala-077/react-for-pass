@@ -1,8 +1,83 @@
-.pd1{
-    text-align: center;
-    background-color: lightpink;
-    padding-top: 40px;
+
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=David+Libre:wght@400;500;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika+Negative:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    
+    font-family: "PT Serif", serif;
 }
-.container1{
-    font-size:x-large;
+
+.pd1{
+    /* text-align: center; */
+    background-color:blanchedalmond;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: url(../OIP.jpg);
+    background-size: cover;
+    
+    
+}
+ .container1{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-size: x-large;
+     background-color: #ffefdf; 
+    /* background: url(../OIP.jpg);
+    background-size: cover; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+} 
+ .contents{
+    width: 100%;
+    height: 100vh;
+
+
+
+} 
+ul{
+    list-style-type: none;
+    padding-top: 20px;
+    margin-bottom: 30%;
+
+}
+li{
+    border-radius: 20px;
+    /* border-bottom: 1px solid black; */
+    width: 230%;
+    height: 50px;
+    background-color:lightsalmon;
+    margin-top: 30%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  
+}
+li:hover{
+    cursor: pointer;
+}
+.lock{
+    width:35px ;
+    height: 26px;
+    
+}
+.gpl{
+    padding-left: 50px;
+}
+.gpl button{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: green;
+    box-shadow: 2px 3px 15px blanchedalmond;
 }

@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
     const handleLogin = (event) =>{
         event.preventDefault();
-        if (username === "username" && password === "12345"){
+        if (username === "dharaa" && password === "12345"){
             navigate('/Datamodels');
         }
         else{

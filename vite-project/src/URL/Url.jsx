@@ -6,6 +6,8 @@ import Link from '../assets/link.png'
 const Component = () => {
   const [IpAddress, setIpAddress]=useState('');
   const navigate = useNavigate();
+
+
   const handleChange = (event) => {
     setIpAddress(event.target.value);
   }
@@ -16,7 +18,7 @@ const Component = () => {
       alert("Enter your url")
     }
     else{
-      navigate('/login ')
+      navigate('/login ', )
     }
   }
   return (
