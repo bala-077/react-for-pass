@@ -1,99 +1,81 @@
-import React, { useState } from 'react'
-import styles from '../component/PasswordEdit.module.css'
-// import { IoIosCopy } from "react-icons/io";
-import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
+import style from '../component/PasswordEdit.module.css'
+import { useNavigate } from 'react-router-dom';
+import { GoCopy } from "react-icons/go";
 
-
-function CopyClipBoard  () {
-    const [UserName ,setUserName] = useState('zara');
-    const [Password,setPassword] = useState('zara@123');
-    const [Url,setUrl] = useState('http://sample.com');
-    const [notes ,setNotes] = useState('write something');
-    const navigate = useNavigate();
-
-const huge = (event) =>{
-    setUserName(event.target.value);
-    setPassword(event.target.value)
-    setUrl(event.target.value)
-    navigate('/EditPass')
-}
-
-const copy =() =>{
-    navigator.clipboard.writeText(UserName).then(() =>{
-        console.log('text copy to clipboard');
-    },
-    (err) =>{
-        console.error('failed to copy text',err);
-    }
-);
-};
-const copy1 =() =>{
-    navigator.clipboard.writeText(Password).then(() =>{
-        console.log('text copy to clipboard');
-    },
-    (err) =>{
-        console.error('failed to copy text',err);
-    }
-);
-};
-const copy2 =() =>{
-    navigator.clipboard.writeText(Url).then(() =>{
-        console.log('text copy to clipboard');
-    },
-    (err) =>{
-        console.error('failed to copy text',err);
-    }
-);
-};
-
-  return (
     
-      <div className={styles.container}>
-        <div className={styles.cont}>
-            <div className={styles.header}>
-                <h1>PASSWORD EDIT</h1>
-             
-                    <div className={styles.details}>
-                        <label htmlFor='user'>USERNAME:</label>
-                        <div className={styles.intxt}>
-                            <input type='text' readOnly value={UserName} onChange={huge}/>
-                            {/* <IoIosCopy OnClick={copy}/> */}
-                            </div></div>
-                        
-                        <div className={styles.details}>
-                            <label htmlFor='user'>PASSWORD:</label>
-                            <div className={styles.intxt}>
-                                <input type='number' readOnly value={Password} onChange={huge}/>
-                                {/* <IoIosCopy OnClick={copy1}/> */}
-                                </div></div>
+    function ReadPage() {
+        const navigate = useNavigate();
+        const [data, setData] = useState({
+            username: 'user123',
+            password: 'pass123',
+            url: 'https://example.com',
+            notes: 'Some notes here',
+        });
 
-                        <div className={styles.details}>
-                            <label htmlFor='user'>URL:</label>
-                            <div className={styles.intxt}>
-                                <input type='text' readOnly value={Url} onCanPlay={huge}/>
-                                {/* <IoIosCopy OnClick={copy2}/> */}
-                                </div></div>
 
-                            <div className={styles.fav}>
-                                <input type="checkbox" />
-                                <span>favourite</span>
+        const handleEdit = () => {
+            navigate('/edit', { state: { data } });
+        };
+        const HandleCopy = async (text) => {
+            try {
+                await navigator.clipboard.writeText(text);
+                console.log("Text Copies Sucessfully");
+            }
+            catch (err) {
+                console.error('failed to copy:', err)
+            }
+        }
 
-                                <div className={styles.note}>
-                                    <label htmlFor='user'>NOTE:</label>
-                                    <div className='text'>
-                                    <textarea name='textbox' id='note' value={notes} readOnly></textarea>
-                                    </div>
-                                </div>
+    return (
+        <>
+            <div className={style.container}>
+                <div className={style.container1}>
+                    <div className={style.user}>
+                        <label htmlFor="user">Username</label>
+                        <div className={style.username}>
+                            <input type="text" readOnly value={data.username}/>
+                             <GoCopy className={style.icons} onClick={() => HandleCopy(data.username)} />
                             </div>
-                            <div className={styles.btn}>
-                               <button onClick={huge}>EDIT</button></div>
-                                </div>
+                    </div>
+                    <div className={style.user}>
+                        <label htmlFor="password">Password</label>
+                        <div className={style.password}>
+                            <input type="text" readOnly value={data.password}  />
+                            <GoCopy className={style.icons} 
+                                onClick={() => HandleCopy(data.password)} />
+                           </div>
+                    </div>
+                    <div className={style.user}>
+                        <label htmlFor="url">Url</label>
+                        <div className={style.url}>
+                            <input type="text" />
+                            <GoCopy className={style.icons} onClick={() => HandleCopy(data.url)} />
                             </div>
-                         </div>
-                    
-              
+                    </div>
+                    <div className={style.fav}>
+                       <input type="checkbox" /> <label htmlFor="box">Favourite</label>
+                       </div>
+                        <div className={style.note}>
+                            < label htmlFor="notes">notes</label>
+                            <div>
+                            <textarea name="txtbox" id="notes" value={data.notes} readOnly></textarea>
+                            </div>
+                        </div>
 
-  )
+                        <div className={style.edit}>
+                            <button onClick={handleEdit}>edit</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+        </>
+    )
 }
 
-export default CopyClipBoard
+export default ReadPage;

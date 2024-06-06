@@ -1,0 +1,59 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    padding-top: 20px;
+    
+    
+}
+/* .content{
+    background-color: navajowhite;
+    width: 500px;
+    height: 500px;
+
+} */
+.content{
+    width: 80%;
+    height: 80%;
+}
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+}
+.gp{
+    padding-left: 500px;
+    margin-bottom: 200px;
+    margin-top: 50px;
+    
+}
+.gp button{
+        height:40px ;
+        width: 200px;
+        border-radius: 50px;
+}
+.inputfield{
+    height: 20px;
+    width: 140px;
+    border-radius: 10px;
+
+}
+.passworddisplay{
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    
+    
+}
+.passworddisplay .icon{
+      width:40px;
+      height: 40px;
+      /* position: fixed; */
+      margin-left:1160px;
+      /* margin-left: 500px; */
+}

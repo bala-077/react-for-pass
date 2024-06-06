@@ -20,7 +20,11 @@ import styles from '../component/DataList.module.css'
 ]
     const navigate = useNavigate();
     const handleEdit = (id) =>{
-      navigate(`/edit-password/${id}`);
+      navigate('/edit-password ');
+    }
+    const nav =useNavigate();
+    const handlego=()=>{
+      nav('/generatepassword')
     }
   return (
     <>
@@ -31,9 +35,14 @@ import styles from '../component/DataList.module.css'
       <div className={styles.divisons}>
       {passwords.map((item) =>(
         <div key={item.id}  onClick={() =>handleEdit(item.id)} className={styles.contents} ><p>{item.name}</p></div>
+        
       ))}
       </div>
+      <div className={styles.btn}>
+        <button onClick={handlego}>GENERATE</button>
+      </div>
     </div>
+
     </>
   )
 }

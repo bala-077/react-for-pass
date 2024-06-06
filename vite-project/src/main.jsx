@@ -5,7 +5,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginPage from './assets/component/LoginPage'
 import DataList from './assets/component/DataList'
 import  PasswordEdit  from './assets/component/PasswordEdit'
-// import  EditPage  from './assets/component/EditPage'
+import EditPage from './assets/component/EditPage'
+import UpdatePage from './assets/component/UpdatePage'
+import PswdGenerator from './assets/component/PswdGenerator'
+
+
 
 function App() {
   
@@ -14,8 +18,10 @@ function App() {
         <Route path='/' element={<UrlPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/datamodels' element={<DataList /> } />
-        <Route path='/edit-password/:id' element={<PasswordEdit />} />
-        {/* <Route path='/editpage' element={<EditPage />} /> */}
+        <Route path='/edit-password' element={<PasswordEdit/>} />
+        <Route path='/edit' element={<EditPage />} />
+        <Route path='/update' element={<UpdatePage />}/>
+        <Route path='/generatepassword' element={<PswdGenerator />} />
       </Routes> 
     )
   }

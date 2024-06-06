@@ -44,7 +44,7 @@ const Login = () =>{
                 <div className={styles.userpassword}>
                     <label htmlFor="username">PASSWORD:</label>
                     <div className={styles.name}>
-                        <input type="password" value={password} onChange={(e) =>setPassword(e.target.value)}/>
+                        <input type="text" value={password} onChange={(e) =>setPassword(e.target.value)}/>
                         {/* <RiLockPasswordLine className={styles.icons}/> */}
                     </div>
                 </div>    

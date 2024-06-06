@@ -1,46 +1,77 @@
-// import React from 'react'
-// import styles from './component/EditPage.module.css'
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import style from '../component/EditPage.module.css'
 
-// const EditPage = () => {
-//   return (
-//     <div className={styles.container}>
-//         <div className={styles.container}>
-//             <div className={styles.header}>
-//                 <h1>EDIT PAGE</h1>
+function EditPage() {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const nav = useNavigate();
+    const [formData, setFormData] = useState(location.state.data);
 
-//                 <div className={styles.details}>
-//                     <label htmlFor='user'>USERNAME:</label>
-//                     <div className={styles.intxt}>
-//                         <input type='text'></input></div></div>
-                
-//                 <div className={styles.details}>
-//                     <label htmlFor='user'>PASSWORD:</label>
-//                     <div className={styles.intxt}>
-//                         <input type='text'></input></div></div>
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
-//                 <div className={styles.details}>
-//                     <label htmlFor='user'>URL:</label>
-//                     <div className={styles.intxt}>
-//                         <input type='text'></input></div></div>
+    const handleClick = (e) => {
+        nav('/generatepassword')
+    }
 
-//                         <div className={styles.favorite}>
-//                             <input type="checkbox"/>
-//                             <span>favorite</span></div>
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate('/update', { state: { updatedData: formData } });
+    };
 
-//                             <div className={styles.note}>
-//                                     <label htmlFor='user'>NOTE:</label>
-//                                     <div className='text'>
-//                                     <textarea name='textbox' id='note' value={notes} readOnly></textarea>
-//                                     </div>
-                            
-//                                 <div className={styles.btn}>
-//                                <button onClick={handle}>UPDATE</button></div>
-//                                 </div>
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <div className={style.container}>
+                    <div className={style.contents}>
+                        <div className={style.details}>
+                           
+                            <label htmlFor="user">Username
+                                <div className={style.content}>
+                                    <input type="text" name='username' value={formData.username} onChange={handleChange} />
+                                </div>
+                            </label>
+                        </div>
+                        <div className={style.details}>
+                            <label htmlFor="user">Password
+                                <div className={style.content}>
+                                    <input type="text" name='password' value={formData.password} onChange={handleChange} />
+                                </div>
+                            </label>
+                        </div>
+                        <div className={style.details}>
+                            <label htmlFor="user">URL
+                                <div className={style.content}>
+                                    <input type="text" name='url' value={formData.url} onChange={handleChange} />
+                                </div>
+                            </label>
+                        </div>
+                        <div className={style.fav}>
+                            <input type="checkbox" />
+                            <span>Favorite</span>
+                        </div>
+                        <div className={style.notes}>
+                            <label htmlFor="notes">Notes
+                                <div className={style.textbox}><textarea name="notes" id="notes" value={formData.notes} onChange={handleChange}></textarea></div>
+                            </label>
+                        </div>
+                        <div className={style.container1}>
+                        <div className={style.update}>
+                            <button type='submit'>Update</button>
+                        </div>
+                        <div className={style.generate}>
+                                <button class="bttn" onClick={handleClick}>Generate Password</button>
+                        </div>
+                        </div>
 
-//             </div>
-//         </div>
-//     </div>
-//   )
-// }
 
-// export default EditPage
+                    </div>
+                </div>
+            </form>
+        </>
+    )
+}
+export default EditPage;
