@@ -8,13 +8,15 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 function PasswordManager() {
     const location = useLocation();
     const { address, selectedItem } = location.state || {};
-    console.log("value",address)
+    console.log("value",address,selectedItem)
 
     const [selectedPassword, setSelectedPassword] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
-
+    console.log('Before')
     useEffect(() => {
+        console.log('Start')
         const fetchPasswordDetails = async () => {
+            console.log("Success")
             try {
                 const myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
@@ -36,6 +38,7 @@ function PasswordManager() {
                 const response = await fetch(`http://${address}/api/method/jinpass.jinpass.api.show_password`, requestOptions);
                 const message = await response.json();
                 const result = message.message;
+                console.log("message:",message,"Result:",result)
 
                 if (response.ok) {
                     setSelectedPassword({
@@ -141,7 +144,7 @@ function PasswordManager() {
             ) : (
                 <div className={styles.container}>
                     <div className={styles.divisions}>
-                        <p>No password selected</p>
+                        <p>Please wait</p>
                     </div>
                 </div>
             )}

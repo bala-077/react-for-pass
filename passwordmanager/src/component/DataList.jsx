@@ -24,7 +24,7 @@ function PasswordList() {
                 const response = await fetch(`http://${address}/api/method/jinpass.jinpass.api.get_all_passwords`, requestOptions);
                 const result = await response.json();
 
-                console.log('Response:', result); 
+                console.log('Response:', result);
 
                 if (result && Array.isArray(result.message)) {
                     setPasswords(result.message);
@@ -42,13 +42,15 @@ function PasswordList() {
     const handleEdit = (name) => {
         // Find the selected password item
         const selectedItem = passwords.find(item => item.name === name);
+        console.log("value", selectedItem)
+
         if (selectedItem) {
             navigate(`/edit-password/${name}`, {
                 state: { address, selectedItem }
             });
+            console.log("selected item", selectedItem)
         }
-        console.log("value"+name)
-        console.log("address"+address)
+
     };
 
     return (

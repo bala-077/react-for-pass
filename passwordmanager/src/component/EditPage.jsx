@@ -8,9 +8,12 @@ function EditPage() {
     const location = useLocation();
     const navigate = useNavigate();
     const addressUrl = useLocation();
-    const {address} = addressUrl.state || {};
+    const { address } = addressUrl.state || {};
     const { usertitle, username, url, notes, password } = location.state || {};
-    console.log("address",address)
+    let selectedItem = {
+        "id":0,
+        "name":usertitle,
+    }
 
     const [formData, setFormData] = useState({
         address: address,
@@ -20,7 +23,7 @@ function EditPage() {
         url: url || '',
         notes: notes || ''
     });
-
+    console.log(formData)
     const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
@@ -32,12 +35,30 @@ function EditPage() {
     };
 
     const handleClick = () => {
-        navigate('/generatepassword');
+        navigate("/generatepassword");
     };
+    console.log("click",selectedItem)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate('/edit', { state: { formData } });
+        const response = await Handlepage(
+            formData.address,
+            formData.username,
+            formData.password,
+            formData.url,
+            formData.notes,
+            formData.usertitle
+        );
+        // console.log(response)
+        if (response.status === 200) {
+            // alert("Password Successfully Updated");
+            navigate(`/edit-password/${usertitle}`, { state: { address,selectedItem } });
+
+        } else if (response.status === 404) {
+            // alert("Can't find the password: " + formData.usertitle);
+        } else {
+            alert("An error occurred");
+        }
     };
 
     const togglePasswordVisibility = () => {
@@ -101,30 +122,41 @@ function EditPage() {
 
 export default EditPage;
 
-function Handlepage(url,Updateusername,Updatepassword,Updateurl,Updatenotes){
+async function Handlepage(url, Updateusername, Updatepassword, Updateurl, Updatenotes,Usertitle) {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Cookie", "full_name=Guest; sid=Guest; system_user=no; user_id=Guest; user_image=");
 
+    const raw = JSON.stringify({
+        "data": {
+            "Name":Usertitle,
+            "User Name": Updateusername,
+            "Password": Updatepassword,
+            "URL": Updateurl,
+            "Notes": Updatenotes
+        }
+    });
+
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    try {
+        const response = await fetch(`http://${url}/api/method/jinpass.jinpass.api.edit_password`, requestOptions);
+        const result = await response.json();
+        console.log(result)
+        return {
+            status: response.status,
+            result: result
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            status: 500,
+            result: error.message
+        };
+    }
 }
-const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-myHeaders.append("Cookie", "full_name=Guest; sid=Guest; system_user=no; user_id=Guest; user_image=");
-
-const raw = JSON.stringify({
-  "data": {
-    "User Name": Updateusername,
-    "Password": Updatepassword,
-    "URL": Updateurl,
-    "Notes": Updatenotes
-  }
-});
-
-const requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body: raw,
-  redirect: "follow"
-};
-
-fetch(`http://${url}/api/method/jinpass.jinpass.api.edit_password`, requestOptions)
-  .then((response) => response.text())
-  .then((result) => {return result})
-  .catch((error) => console.error(error));
