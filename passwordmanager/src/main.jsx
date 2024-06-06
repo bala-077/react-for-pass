@@ -18,8 +18,8 @@ function App() {
       <Route path='/' element={<UrlPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/datamodels' element={<DataList />} />
-      <Route path='/edit-password/:id' element={<PasswordEdit />} />
-      <Route path='/update' element={<PasswordEdit />} />
+      <Route path='/edit-password/:name' element={<PasswordEdit />} />
+      {/* <Route path='/update' element={<PasswordEdit />} /> */}
       <Route path='/edit' element={<EditPage />} />
 
       {/* <Route path='/update' element={<UpdatePage />} /> */}

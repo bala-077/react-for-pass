@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { IoCopyOutline } from "react-icons/io5";
 import styles from '../css/PasswordEdit.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { BsEye } from "react-icons/bs";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 
 function PasswordManager() {
     const location = useLocation();
     const { address, selectedItem } = location.state || {};
+    console.log("value",address)
 
     const [selectedPassword, setSelectedPassword] = useState(null);
-    console.log(address, selectedItem, selectedPassword)
-
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         const fetchPasswordDetails = async () => {
@@ -23,7 +25,7 @@ function PasswordManager() {
                         "name": selectedItem.name
                     }
                 });
-                console.log(raw)
+
                 const requestOptions = {
                     method: "POST",
                     headers: myHeaders,
@@ -34,8 +36,7 @@ function PasswordManager() {
                 const response = await fetch(`http://${address}/api/method/jinpass.jinpass.api.show_password`, requestOptions);
                 const message = await response.json();
                 const result = message.message;
-                console.log("result:", result)
-                console.log("Response:", response, "Result:", result, "message:", result.message)
+
                 if (response.ok) {
                     setSelectedPassword({
                         name: result.Name,
@@ -44,7 +45,6 @@ function PasswordManager() {
                         url: result.URL,
                         notes: result.Notes
                     });
-                    console.log(result.Name, result.Password, result.URL, result.Notes)
                 } else {
                     console.error('Failed to fetch password details:', result);
                 }
@@ -65,18 +65,24 @@ function PasswordManager() {
             console.error('Failed to copy text', err);
         });
     };
-    const nav = useNavigate()
+
+    const nav = useNavigate();
     const handleClick = () => {
         nav('/edit', {
             state: {
-                name: selectedPassword.name,
+                address: address,
+                usertitle: selectedPassword.name,
                 username: selectedPassword.username,
                 url: selectedPassword.url,
                 notes: selectedPassword.notes,
                 password: selectedPassword.password
             }
-        });
-    }
+        },{state : {address}});
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(prevShowPassword => !prevShowPassword);
+    };
 
     return (
         <div className={styles.container}>
@@ -85,9 +91,9 @@ function PasswordManager() {
             </div>
             {selectedPassword ? (
                 <div className={styles.contents}>
+                    <p className={styles.para}>{selectedPassword.name || ''}</p>
                     <form>
                         <div className={styles.details}>
-                            <p>{selectedPassword.name}</p>
                             <label htmlFor="username">Username</label>
                             <div className={styles.content}>
                                 <input type="text" name="username" value={selectedPassword.username || ''} readOnly />
@@ -97,8 +103,18 @@ function PasswordManager() {
                         <div className={styles.details}>
                             <label htmlFor="password">Password</label>
                             <div className={styles.content}>
-                                <input type="password" name="password" value={selectedPassword.password || ''} readOnly />
+                                <div className={styles.passwords}>
+                                <input 
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    value={selectedPassword.password || ''}
+                                    readOnly
+                                />
+                                <div type="button" className={styles.toggleButton} onClick={togglePasswordVisibility}>
+                                    {showPassword ? <AiOutlineEyeInvisible /> : <BsEye />}
+                                </div>
                                 <IoCopyOutline className={styles.icons} onClick={() => handleCopy(selectedPassword.password)} />
+                            </div>
                             </div>
                         </div>
                         <div className={styles.details}>
@@ -114,7 +130,12 @@ function PasswordManager() {
                                 <textarea name="notes" value={selectedPassword.notes || ''} readOnly></textarea>
                             </div>
                         </div>
-                        <button onClick={handleClick}>edit</button>
+                        <div className={styles.button}>
+                            <button type="button" onClick={handleClick} className={styles.Btn}>Edit
+                                <svg className={styles.svg} viewBox="0 0 512 512">
+                                    <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg>
+                            </button>
+                        </div>
                     </form>
                 </div>
             ) : (

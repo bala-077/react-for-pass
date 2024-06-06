@@ -8,8 +8,13 @@
 }
 
 .button1 {
-    width: 100%;
+    /* width: 100%; */
+    position: absolute;
+    right: 10px;
+    top: 10px;
     text-align: end;
+    display: flex;
+    justify-content: end;
 }
 
 .button1 button {
@@ -32,13 +37,22 @@
 .contents {
     height: 86%;
     width: 80%;
+    position: relative;
+
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     padding: 20px;
     border-radius: 20px;
 }
 
+.contents p {
+    font-size: 25px;
+    font-weight: 600;
+    color: cornflowerblue;
+    padding: 10px;
+}
+
 .details {
-    margin-top: 1%;
+    /* margin-top: 1%; */
     width: 100%;
     padding: 10px;
     border-bottom: 1px solid black;

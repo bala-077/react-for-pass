@@ -56,7 +56,6 @@ function PasswordList() {
             <div className={styles.header}>
                 <h1>PASSWORD LIST</h1>
             </div>
-            <p>{address}</p>
             <div className={styles.container}>
                 <div className={styles.divisions}>
                     {passwords.map((item) => (
