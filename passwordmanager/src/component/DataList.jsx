@@ -6,7 +6,6 @@ function PasswordList() {
     const navigate = useNavigate();
     const location = useLocation();
     const { address } = location.state || {};
-    // const [Ipaddress, setIpAddress] = useState(address);
     const [passwords, setPasswords] = useState([]);
 
     useEffect(() => {
@@ -40,7 +39,6 @@ function PasswordList() {
     }, []);
 
     const handleEdit = (name) => {
-        // Find the selected password item
         const selectedItem = passwords.find(item => item.name === name);
         console.log("value", selectedItem)
 

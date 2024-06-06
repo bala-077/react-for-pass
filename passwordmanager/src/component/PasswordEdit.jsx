@@ -8,7 +8,7 @@ import { AiOutlineEyeInvisible } from "react-icons/ai";
 function PasswordManager() {
     const location = useLocation();
     const { address, selectedItem } = location.state || {};
-    console.log("value",address,selectedItem)
+    console.log("value", address, selectedItem)
 
     const [selectedPassword, setSelectedPassword] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +38,7 @@ function PasswordManager() {
                 const response = await fetch(`http://${address}/api/method/jinpass.jinpass.api.show_password`, requestOptions);
                 const message = await response.json();
                 const result = message.message;
-                console.log("message:",message,"Result:",result)
+                console.log("message:", message, "Result:", result)
 
                 if (response.ok) {
                     setSelectedPassword({
@@ -80,7 +80,7 @@ function PasswordManager() {
                 notes: selectedPassword.notes,
                 password: selectedPassword.password
             }
-        },{state : {address}});
+        }, { state: { address } });
     };
 
     const togglePasswordVisibility = () => {
@@ -107,17 +107,17 @@ function PasswordManager() {
                             <label htmlFor="password">Password</label>
                             <div className={styles.content}>
                                 <div className={styles.passwords}>
-                                <input 
-                                    type={showPassword ? "text" : "password"}
-                                    name="password"
-                                    value={selectedPassword.password || ''}
-                                    readOnly
-                                />
-                                <div type="button" className={styles.toggleButton} onClick={togglePasswordVisibility}>
-                                    {showPassword ? <AiOutlineEyeInvisible /> : <BsEye />}
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        name="password"
+                                        value={selectedPassword.password || ''}
+                                        readOnly
+                                    />
+                                    <div type="button" className={styles.toggleButton} onClick={togglePasswordVisibility}>
+                                        {showPassword ? <AiOutlineEyeInvisible /> : <BsEye />}
+                                    </div>
+                                    <IoCopyOutline className={styles.icons} onClick={() => handleCopy(selectedPassword.password)} />
                                 </div>
-                                <IoCopyOutline className={styles.icons} onClick={() => handleCopy(selectedPassword.password)} />
-                            </div>
                             </div>
                         </div>
                         <div className={styles.details}>

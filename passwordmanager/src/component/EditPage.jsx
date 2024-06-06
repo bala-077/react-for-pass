@@ -11,8 +11,8 @@ function EditPage() {
     const { address } = addressUrl.state || {};
     const { usertitle, username, url, notes, password } = location.state || {};
     let selectedItem = {
-        "id":0,
-        "name":usertitle,
+        "id": 0,
+        "name": usertitle,
     }
 
     const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ function EditPage() {
     const handleClick = () => {
         navigate("/generatepassword");
     };
-    console.log("click",selectedItem)
+    console.log("click", selectedItem)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,7 +52,7 @@ function EditPage() {
         // console.log(response)
         if (response.status === 200) {
             // alert("Password Successfully Updated");
-            navigate(`/edit-password/${usertitle}`, { state: { address,selectedItem } });
+            navigate(`/edit-password/${usertitle}`, { state: { address, selectedItem } });
 
         } else if (response.status === 404) {
             // alert("Can't find the password: " + formData.usertitle);
@@ -111,8 +111,28 @@ function EditPage() {
                             <textarea name="notes" value={formData.notes} onChange={handleChange}></textarea>
                         </div>
                     </div>
-                    <div className={styles.button}>
-                        <button type="submit">Update</button>
+                    <div className={styles.button2}>
+                        <button type="submit">
+                            <button type='submit'>
+                                <span className={styles.spanmother}>
+                                    <span>u</span>
+                                    <span>p</span>
+                                    <span>d</span>
+                                    <span>a</span>
+                                    <span>t</span>
+                                    <span>e</span>
+                                </span>
+                                <span class={styles.spanmother2}>
+                                    <span>U</span>
+                                    <span>p</span>
+                                    <span>d</span>
+                                    <span>a</span>
+                                    <span>t</span>
+                                    <span>e</span>
+                                </span>
+                            </button>
+
+                        </button>
                     </div>
                 </div>
             </div>
@@ -122,14 +142,14 @@ function EditPage() {
 
 export default EditPage;
 
-async function Handlepage(url, Updateusername, Updatepassword, Updateurl, Updatenotes,Usertitle) {
+async function Handlepage(url, Updateusername, Updatepassword, Updateurl, Updatenotes, Usertitle) {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Cookie", "full_name=Guest; sid=Guest; system_user=no; user_id=Guest; user_image=");
 
     const raw = JSON.stringify({
         "data": {
-            "Name":Usertitle,
+            "Name": Usertitle,
             "User Name": Updateusername,
             "Password": Updatepassword,
             "URL": Updateurl,

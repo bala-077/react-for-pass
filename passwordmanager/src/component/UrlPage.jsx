@@ -12,7 +12,6 @@ const MyComponent = () => {
     const Handlenext = () => {
         navigate('/login', { state: { IpAddress } });
     }
-   
     return (
         <>
             <form onSubmit={Handlenext}>
@@ -29,7 +28,7 @@ const MyComponent = () => {
                                 <div className={styles.urlfield}>
                                     <div className={styles.inputs}>
                                         <img src={link} alt="" />
-                                        <input type="text" value={IpAddress} onChange={(e) =>setIpAddress(e.target.value)} />
+                                        <input type="text" value={IpAddress} onChange={(e) => setIpAddress(e.target.value)} />
                                         <button type='submit' onClick={Handlenext}>GO</button>
                                     </div>
                                 </div>
